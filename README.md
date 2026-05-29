@@ -8,6 +8,7 @@ Features:
 - View all saved expenses
 - Calculate total expenses
 - Calculate category wise expenses
+- Delete an existing expense from your list
 - Save expenses automatically
 - Load previous expenses on startup
 - Input validation
