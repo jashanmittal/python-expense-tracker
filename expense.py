@@ -22,12 +22,34 @@ def load():
 
 def menu():
     print("Which feature would you like to use?\n")
-    print("1. Add expense\n2. View expense\n3. Total Expenses\n4. Exit")
+    print("1. Add expense\n2. View expense\n3. Total Expenses\n4. Category Expense\n5. Exit")
     choice = input()
 
-    if choice == "4":
+    if choice == "5":
         save()
         exit()
+
+    elif choice == "4":
+        print("Which category would you like to check:")
+        print("1. Food\n2. Travel\n3. Clothes\n4. Other")
+        select_category = input()
+
+        category_map = {"1": "food",
+                        "2": "travel",
+                        "3": "clothes",
+                        "4": "other"}
+        
+        if select_category not in category_map:
+            print("Invalid Choice")
+            return
+        
+        category_name = category_map[select_category]
+
+        category_expense = sum(expense["Amount"] for expense in expenses
+                               if expense["Category"] == category_name)
+        
+        print(f"Total {category_name} expenses are: {category_expense}")
+
 
     elif choice == "3":
         total = sum(expense["Amount"] for expense in expenses)
